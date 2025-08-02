@@ -48,6 +48,7 @@ export class DestinationsController {
   ) {
     return this.destinationsService.updateDestination(
       id,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
       req.user.userId,
       updateDestinationDto,
     );
@@ -55,6 +56,7 @@ export class DestinationsController {
 
   @Delete(':id')
   remove(@Param('id') id: string, @Request() req) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
     return this.destinationsService.removeDestination(id, req.user.userId);
   }
 }
