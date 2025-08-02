@@ -1,0 +1,14 @@
+import { IsEmail, IsString, MinLength } from 'class-validator';
+
+export class RegisterDto {
+  constructor(email: string, password: string) {
+    this.email = email;
+    this.password = password;
+  }
+  @IsEmail({}, { message: 'Please provide a valid email address.' })
+  email: string;
+
+  @IsString({ message: 'Please provide a valid password.' })
+  @MinLength(6, { message: 'Password must be at least 6 characters long.' })
+  password: string;
+}
